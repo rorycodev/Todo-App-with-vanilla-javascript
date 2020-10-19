@@ -1,0 +1,242 @@
+:root{
+	--ff-title : 'Montserrat' , sans-serif;
+	--ff-main : 'Open Sans', sans-serif;
+
+	--clr-primary : #ae64e3;
+	--clr-danger : #ff5353;
+	--clr-grey : #f6f6f6;
+	--clr-bg : #ececec;
+}
+
+*{
+	margin : 0;
+	padding : 0;
+	box-sizing : border-box;
+	font-family : var(--ff-main);
+}
+
+body{
+	min-height : 100vh;
+	background-color : var(--clr-bg);
+}
+
+h1{
+	font-family : var(--ff-title);
+	font-size : 2.5rem;
+}
+
+/* START: GLOBAL CLASS; */
+
+.btn{
+	padding : .7em 1em;
+	background : none;
+	border : none;
+	border-radius : .7em;
+	font-size : 1rem;
+	cursor : pointer;
+}
+
+.btn-primary{
+	background-color : var(--clr-primary);
+	color : white;
+}
+
+.btn-full{
+	width : 100%;
+}
+
+.icon{
+	pointer-events : none;
+}
+
+.input-group{
+	display : flex;
+	flex-direction : column;
+}
+
+/* END: GLOBAL CLASS; */
+
+
+header{
+	display : flex;
+	flex-direction : column;
+	align-items : center;
+	padding : 2em 0;
+}
+
+header button{
+	margin-top : 1em;
+}
+
+#todo-nav-container{
+	display : flex;
+	justify-content : center;
+	margin : 1em 0;
+}
+
+.todo-nav{
+	min-width : 9rem;
+	margin : 0 .5em;
+	padding : 1em 0;
+	background-color : var(--clr-grey);
+	border : none;
+	border-radius : .7em;
+	cursor : pointer;
+}
+
+.todo-nav.selected{
+	background-color : white;
+	color : var(--clr-primary);
+}
+
+#todos{
+	display : flex;
+	flex-direction : column;
+	align-items : center;
+	margin : 2em 0;
+}
+
+.todo{
+	max-width : 100%;
+	width : 40rem;
+	background-color : white;
+	border-radius : .7em;
+	overflow : hidden;
+}
+
+#todos > .todo + .todo{
+	margin-top : 1em;
+}
+
+.todo-main{
+	display : flex;
+	padding : 1em 2em;
+}
+
+.todo-info{
+	flex : 1;
+	display : flex;
+}
+
+.todo-time{
+	margin-left : .5em;
+	color : var(--clr-primary);
+}
+
+.todo-actions{
+	display : flex;
+	align-items : center;
+}
+
+.todo-actions > * + *{
+	margin-left : 1.5rem;
+}
+
+.todo-toggle-desc{
+	background : none;
+	border : none;
+	color : var(--clr-primary);
+	font-size : 1.35rem;
+	cursor : pointer;
+}
+
+.todo-checkbox{
+	display : inline-block;
+	background : none;
+	border : none;
+}
+
+.todo-delete{
+	background : none;
+	border : none;
+	color : var(--clr-danger);
+	font-size : 1.35rem;
+	cursor : pointer;
+}
+
+.todo-desc{
+	display : none;
+	padding : 1em 2em;
+	background-color : var(--clr-grey);
+	overflow : hidden;
+}
+
+.todo.show .todo-toggle-desc{
+	transform : rotate(180deg);
+}
+
+.todo.show .todo-desc{
+	display : block;
+}
+
+#addTodoModal{
+	display : none;
+	position : absolute;
+	top : 50%;
+	left : 50%;
+	transform : translate(-50%, -50%);
+	width : 30rem;
+	padding : .8em 2em;
+	background-color : white;
+	border-radius : .7em;
+	z-index : 2;
+}
+
+#addTodoModal .modal-body{
+	padding : 1em 0 1em;
+}
+
+#addTodoModal .input-group + .input-group{
+	margin-top : .8em;
+}
+
+#addTodoModal .input-group input{
+	margin-top : .4em;
+	padding : .8em .5em;
+	border : 2px solid var(--clr-primary);
+	border-radius : .7em;
+	font-size : 1rem;
+}
+
+#addTodoModal .input-group textarea{
+	min-height : 8rem;
+	margin-top : .5em;
+	padding : .8em .5em;
+	border : 2px solid var(--clr-primary);
+	border-radius : .7em;
+	font-size : 1rem;
+	resize : none;
+}
+
+#addTodoModal #errorMessage{
+	display : block;
+	margin-top : .5em;
+	color : var(--clr-danger);
+	pointer-events : none;
+	opacity : 0;
+}
+
+#overlay{
+	position : absolute;
+	top : 0;
+	left : 0;
+	height : 100%;
+	width : 100%;
+	background-color : black;
+	opacity : 0;
+	pointer-events : none;
+}
+
+#addTodoModal.open{
+	display : block;
+}
+
+#addTodoModal.open + #overlay{
+	opacity : .5;
+	pointer-events : none;
+}
+
+#addTodoModal .btn-danger{
+	margin-top : .5em;
+	color : red;
+}

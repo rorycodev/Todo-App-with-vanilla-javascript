@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./style.css">
+	<title>Todo App</title>
+</head>
+<body>
+
+	<div id="addTodoModal">
+		<div class="modal-header">
+			<h1>Add Todo</h1>
+		</div>
+		<div class="modal-body">
+			<div class="input-group">
+				<label for="nameInput">Name</label>
+				<input type="text" id="nameInput">
+			</div>
+			<div class="input-group">
+				<label for="timeInput">Time To Done</label>
+				<input type="time" id="timeInput">
+			</div>
+			<div class="input-group">
+				<label for="descInput">Description</label>
+				<textarea id="descInput"></textarea>
+			</div>
+			<div id="errorMessage">Error</div>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary btn-full btn-submit">Add Todo</button>
+			<button class="btn btn-danger btn-full btn-cancel">Cancel</button>
+		</div>
+	</div>
+
+	<div id="overlay"></div>
+
+	<header>
+		<h1 id="app-logo">
+			Todo App
+		</h1>
+
+		<button class="btn btn-primary"id="addTodoBtn">
+			<i class="fa fa-plus"></i>
+		</button>
+	</header>
+
+	<div id="todo-nav-container">
+		<button class="todo-nav selected" data-nav="all">
+			All
+		</button>
+		<button class="todo-nav" data-nav="uncompleted">
+			Uncompleted
+		</button>
+		<button class="todo-nav" data-nav="completed">
+			Completed
+		</button>
+	</div>
+
+	<div id="todos"></div>
+
+<script src="./main.js"></script>
+</body>
+</html>
